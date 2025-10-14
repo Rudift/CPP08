@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.tpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdeliere <vdeliere@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-10-14 11:21:08 by vdeliere          #+#    #+#             */
-/*   Updated: 2025-10-14 11:21:08 by vdeliere         ###   ########.fr       */
+/*   Created: 2025-10-14 14:07:44 by vdeliere          #+#    #+#             */
+/*   Updated: 2025-10-14 14:07:44 by vdeliere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
-template <typename T>
-typename T::iterator easyfind(T &container, int value){
-	typename T::iterator it = std::find(container.begin(), container.end(), value);
-	if (it == container.end())
-		throw std::runtime_error("Value not found");
-	return (it);
-}
+#include <vector>
 
+class Span{
+	private:
+		unsigned int 		_maxsize;
+		std::vector<int>	_numbers;
+	public:
+		Span(unsigned int N);
+		Span(const Span &other);
+		Span& operator=(const Span &other);
+		~Span();
+
+		void addNumber(unsigned int num);
+		
+		class SpanFull : public std::exception{
+			const char* what() const throw();
+		}
+
+};
+
+#endif

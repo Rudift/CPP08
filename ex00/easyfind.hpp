@@ -15,6 +15,7 @@
 
 #  include <vector>
 #  include <list>
+#  include <deque>
 #  include <iostream>
 #  include <algorithm>
 #  include <stdexcept>
@@ -22,10 +23,7 @@
 template <typename T>
 typename T::iterator easyfind(T &container, int value);
 
-template <typename T>
-typename T::iterator easyfind(const T &container, const int value);
 
-
-#  include "easyfind.tpp";
+#  include "easyfind.tpp"//
 
 #endif
