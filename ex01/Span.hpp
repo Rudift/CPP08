@@ -36,9 +36,11 @@ class Span{
 		template<typename Iterator>
 		void	addManyNumbers(Iterator begin, Iterator end){
 			if ((_numbers.size() + std::distance(begin, end)) > _maxsize)
-				throw std::out_of_range("Range of interators too large")
+				throw std::out_of_range("Range of interators too large");
 			_numbers.insert(_numbers.end(), begin, end);
 		}
+
+		std::vector<int>	getNumbers();
 		
 };
 

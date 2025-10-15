@@ -59,3 +59,7 @@ unsigned int	Span::longestSpan(){
 	int	max = *std::max_element(_numbers.begin(), _numbers.end());
 	return (max - min);
 }
+
+std::vector<int>	Span::getNumbers(){
+	return (_numbers);
+}
