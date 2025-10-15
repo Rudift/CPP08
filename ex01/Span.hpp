@@ -14,6 +14,10 @@
 # define SPAN_HPP
 
 #include <vector>
+#include <algorithm>
+#include <stdexcept>
+#include <limits>
+#include <iostream>
 
 class Span{
 	private:
@@ -25,12 +29,17 @@ class Span{
 		Span& operator=(const Span &other);
 		~Span();
 
-		void addNumber(unsigned int num);
-		
-		class SpanFull : public std::exception{
-			const char* what() const throw();
-		}
+		void			addNumber(unsigned int num);
+		unsigned int	shortestSpan();
+		unsigned int	longestSpan();
 
+		template<typename Iterator>
+		void	addManyNumbers(Iterator begin, Iterator end){
+			if ((_numbers.size() + std::distance(begin, end)) > _maxsize)
+				throw std::out_of_range("Range of interators too large")
+			_numbers.insert(_numbers.end(), begin, end);
+		}
+		
 };
 
 #endif
