@@ -1,12 +1,11 @@
-NAME = ex01
+NAME = ex02
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
 BUILD_DIR = build
 
-SRCS = main.cpp \
-	Span.cpp
+SRCS = main.cpp 
 
 OBJS = $(SRCS:%.cpp=$(BUILD_DIR)/%.o)
 DEPS = $(OBJS:.o=.d)

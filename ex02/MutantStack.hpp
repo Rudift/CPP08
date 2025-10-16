@@ -15,9 +15,11 @@
 
 #include <stack>
 #include <deque>
+#include <iostream>
+#include <algorithm>
 
 template<typename T>
-class MutantStack:std::stack<T>{
+class MutantStack: public std::stack<T>{
 	public:
 		MutantStack(){}
 		MutantStack(const MutantStack &other) : std::stack<T>(other){}
